@@ -27,8 +27,11 @@ public class ResultView {
         StringBuilder result = new StringBuilder(FRAME_LINE);
         result.append(String.format(NAME_FORMAT, player.getName()));
 
+        int i = 0;
         for (Frame frame : frames.getFrames()) {
             result.append(formatScores(frame));
+            System.out.print(frame.getBonusScore(i) + " ");;
+            i++;
         }
 
         addBlankFrame(frames, result);

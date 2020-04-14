@@ -9,4 +9,9 @@ public class NoneBonus implements BonusScore {
     public boolean isAddable() {
         return false;
     }
+
+    @Override
+    public int getBonusPoint(int frameIndex) {
+        return 0;
+    }
 }

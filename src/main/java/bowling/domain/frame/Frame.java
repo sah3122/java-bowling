@@ -8,4 +8,6 @@ public interface Frame {
     int scoreSize();
 
     String getScore(int i);
+
+    int getBonusScore(int frameIndex);
 }

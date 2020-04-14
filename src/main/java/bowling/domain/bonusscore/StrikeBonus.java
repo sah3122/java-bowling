@@ -1,5 +1,7 @@
 package bowling.domain.bonusscore;
 
+import org.springframework.data.repository.support.PageableExecutionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,5 +24,15 @@ public class StrikeBonus implements BonusScore {
     @Override
     public boolean isAddable() {
         return bonusScores.size() < ADDITIONAL_COUNT;
+    }
+
+    @Override
+    public int getBonusPoint(int frameIndex) {
+        if (this.frameIndex == frameIndex) {
+            return bonusScores.stream()
+                    .mapToInt(Integer::intValue)
+                    .sum();
+        }
+        return 0;
     }
 }

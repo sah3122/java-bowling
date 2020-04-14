@@ -23,4 +23,14 @@ public class SpareBonus implements BonusScore {
     public boolean isAddable() {
         return bonusScores.size() < ADDITIONAL_COUNT;
     }
+
+    @Override
+    public int getBonusPoint(int frameIndex) {
+        if (this.frameIndex == frameIndex) {
+            return bonusScores.stream()
+                    .mapToInt(Integer::intValue)
+                    .sum();
+        }
+        return 0;
+    }
 }

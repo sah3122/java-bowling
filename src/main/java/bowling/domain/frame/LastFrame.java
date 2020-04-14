@@ -76,4 +76,10 @@ public class LastFrame implements Frame {
     public int scoreSize() {
         return scores.size();
     }
+
+    public int getBonusScore(int frameIndex) {
+        return bonusScores.stream()
+                .mapToInt(bonusScore -> bonusScore.getBonusPoint(frameIndex))
+                .sum();
+    }
 }
